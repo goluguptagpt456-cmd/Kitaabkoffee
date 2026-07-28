@@ -16,9 +16,10 @@ export default function Hero() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--color-charcoal-base)]">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url(${heroBg})` }}
+      <img 
+        src={heroBg}
+        alt="Kitaab Koffee"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
       />
       
       {/* Overlay Gradients */}
