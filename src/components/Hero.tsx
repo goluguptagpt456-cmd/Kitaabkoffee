@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import heroWebp from '../assets/images/hero.webp';
 import heroJpg from '../assets/images/hero.jpg';
 import heroPng from '../assets/images/hero.png';
+import heroWebp from '../assets/images/hero.webp';
+
+const IMAGE_SOURCES = [
+  heroJpg,
+  heroPng,
+  heroWebp,
+  './images/hero.jpg',
+  './images/hero.png',
+  './hero.jpg',
+  './hero.png',
+  './images/hero.webp',
+  './hero.webp',
+];
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
 
   useEffect(() => {
     // Small delay to ensure CSS classes apply properly for animation
@@ -15,23 +28,20 @@ export default function Hero() {
   const prefersReducedMotion = typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
   const isAnimated = mounted || prefersReducedMotion;
 
+  const handleImageError = () => {
+    if (imgIndex < IMAGE_SOURCES.length - 1) {
+      setImgIndex((prev) => prev + 1);
+    }
+  };
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--color-charcoal-base)]">
       {/* Background Image */}
       <img 
-        src={heroWebp}
+        src={IMAGE_SOURCES[imgIndex]}
         alt="Kitaab Koffee"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-        onError={(e) => {
-          const target = e.currentTarget;
-          if (target.src !== heroJpg) {
-            target.src = heroJpg;
-          } else if (target.src !== heroPng) {
-            target.src = heroPng;
-          } else {
-            target.src = './images/hero.webp';
-          }
-        }}
+        onError={handleImageError}
       />
       
       {/* Overlay Gradients */}
