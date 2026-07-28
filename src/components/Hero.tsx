@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import heroBg from '../assets/images/hero.png';
+
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
@@ -15,7 +17,7 @@ export default function Hero() {
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--color-charcoal-base)]">
       {/* Background Image */}
       <img 
-        src="/images/bg.png"
+        src={heroBg}
         alt="Kitaab Koffee"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
       />
