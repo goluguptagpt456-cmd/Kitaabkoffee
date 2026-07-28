@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import heroBg from '../assets/images/hero.png';
+import heroWebp from '../assets/images/hero.webp';
+import heroJpg from '../assets/images/hero.jpg';
+import heroPng from '../assets/images/hero.png';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -17,20 +19,17 @@ export default function Hero() {
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[var(--color-charcoal-base)]">
       {/* Background Image */}
       <img 
-        src={heroBg}
+        src={heroWebp}
         alt="Kitaab Koffee"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         onError={(e) => {
           const target = e.currentTarget;
-          const currentSrc = target.src;
-          if (!currentSrc.includes('hero.png') && !currentSrc.includes('Hero.png')) {
-            target.src = heroBg;
-          } else if (currentSrc.includes('assets/')) {
-            target.src = './hero.png';
-          } else if (currentSrc.includes('./hero.png') || currentSrc.includes('/hero.png')) {
-            target.src = './images/hero.png';
+          if (target.src !== heroJpg) {
+            target.src = heroJpg;
+          } else if (target.src !== heroPng) {
+            target.src = heroPng;
           } else {
-            target.src = 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1920';
+            target.src = './images/hero.webp';
           }
         }}
       />
