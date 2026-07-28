@@ -1,0 +1,6 @@
+{
+  "name": "Kitaab Koffee Kafé",
+  "description": "A unique, premium single-page website for Kitaab Koffee Kafé, featuring a night-garden journal aesthetic and AI-powered Wanderer's Guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
