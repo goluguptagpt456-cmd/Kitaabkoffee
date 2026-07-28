@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import compressedImage from '../assets/images/compressed_image.jpeg';
 import heroJpg from '../assets/images/hero.jpg';
 import heroPng from '../assets/images/hero.png';
 import heroWebp from '../assets/images/hero.webp';
 
 const IMAGE_SOURCES = [
+  compressedImage,
   heroJpg,
-  heroPng,
   heroWebp,
+  heroPng,
+  './compressed_image.jpeg',
+  './images/compressed_image.jpeg',
   './images/hero.jpg',
-  './images/hero.png',
   './hero.jpg',
-  './hero.png',
   './images/hero.webp',
-  './hero.webp',
+  './images/hero.png',
+  './hero.png',
 ];
 
 export default function Hero() {
