@@ -1,0 +1,12 @@
+# Force Git and GitHub to treat image/media formats as binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.avif binary
+*.pdf binary
+
+# Standardize line endings for code files
+* text=auto eol=lf
