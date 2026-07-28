@@ -20,6 +20,19 @@ export default function Hero() {
         src={heroBg}
         alt="Kitaab Koffee"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+        onError={(e) => {
+          const target = e.currentTarget;
+          const currentSrc = target.src;
+          if (!currentSrc.includes('hero.png') && !currentSrc.includes('Hero.png')) {
+            target.src = heroBg;
+          } else if (currentSrc.includes('assets/')) {
+            target.src = './hero.png';
+          } else if (currentSrc.includes('./hero.png') || currentSrc.includes('/hero.png')) {
+            target.src = './images/hero.png';
+          } else {
+            target.src = 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1920';
+          }
+        }}
       />
       
       {/* Overlay Gradients */}
